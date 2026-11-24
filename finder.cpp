@@ -178,6 +178,33 @@ void searchCapacity()
     if (!found)
         cout << "No classroom found!\n";
 }
+void searchByBuildingName()
+{
+    string searchName;
+    bool found = false;
+
+    cout << "Enter building name: ";
+    getline(cin >> ws, searchName);
+
+    for (int i = 0; i < classroomCount; i++)
+    {
+        if (classrooms[i].buildingName == searchName)
+        {
+            if (!found)
+            {
+                printTableHeader();
+            }
+
+            printClassroomRow(classrooms[i]);
+            found = true;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "No classroom found in this building.\n";
+    }
+}
 
 // Update room status
 void updateStatus()
@@ -289,7 +316,8 @@ void displayMenu()
     cout << "5. Update Room Status\n";
     cout << "6. Delete Classroom\n";
     cout << "7. Search by Room Number\n";
-    cout << "8. Exit\n";
+    cout << "8. Search by buildingName\n";
+    cout << "9. Exit\n";
 
     cout << "\nEnter your choice: ";
 }
@@ -334,14 +362,25 @@ cin >> choice;
             case 7:
                 searchRoom();
                 break;
+ case 8:
+    searchByBuildingName();
+    break;
 
-            case 8:
-                saveData();
-                cout << "Application closed!\n";
-                break;
+case 9:
+    if (saveData())
+    {
+        cout << "Data saved. Application closed safely.\n";
+    }
+    else
+    {
+        cout << "Application is closing, but saving failed.\n";
+    }
+
+    running = false;
+    break;
 
             default:
-                cout << "Invalid choice!\n";
+                cout << "Invalid choice.please select number 1 to 9!\n";
         }
 
     } while (choice != 8);
