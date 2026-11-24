@@ -266,7 +266,23 @@ void searchRoom()
     if (!found)
         cout << "Room not found!\n";
 }
+void displayMenu()
+{
+    cout << "\n==============================\n";
+    cout << "    EMPTY CLASSROOM FINDER\n";
+    cout << "==============================\n";
 
+    cout << "1. Add Classroom\n";
+    cout << "2. View All Classrooms\n";
+    cout << "3. Search Available Rooms\n";
+    cout << "4. Search by Capacity\n";
+    cout << "5. Update Room Status\n";
+    cout << "6. Delete Classroom\n";
+    cout << "7. Search by Room Number\n";
+    cout << "8. Exit\n";
+
+    cout << "\nEnter your choice: ";
+}
 // Main function
 int main()
 {
@@ -276,21 +292,8 @@ int main()
 
     do
     {
-        cout << "\n================================\n";
-        cout << "     EMPTY CLASSROOM FINDER\n";
-        cout << "================================\n";
-
-        cout << "1. Add Classroom\n";
-        cout << "2. View All Classrooms\n";
-        cout << "3. Search Available Rooms\n";
-        cout << "4. Search by Capacity\n";
-        cout << "5. Update Room Status\n";
-        cout << "6. Delete Classroom\n";
-        cout << "7. Search by Room Number\n";
-        cout << "8. Exit\n";
-
-        cout << "\nEnter your choice: ";
-        cin >> choice;
+       displayMenu();
+cin >> choice;
 
         switch (choice)
         {
