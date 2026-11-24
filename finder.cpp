@@ -228,6 +228,16 @@ void deleteClassroom()
             {
                 rooms[j] = rooms[j + 1];
             }
+            char confirm;
+
+cout << "Are you sure you want to delete? (y/n): ";
+cin >> confirm;
+
+if (confirm != 'y' && confirm != 'Y')
+{
+    cout << "Deletion cancelled.\n";
+    return;
+}
 
             count--;
             saveData();
