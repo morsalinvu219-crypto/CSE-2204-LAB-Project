@@ -34,7 +34,7 @@ void saveData()
     file.close();
 }
 
-// Load data
+// data
 void loadData()
 {
     ifstream file("classrooms.txt");
